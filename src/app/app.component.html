@@ -1,6 +1,39 @@
-<div class="d-flex justify-content-center align-items-center w-100 h-100">
-  <div class="card">
-    <span>Programacion lineal</span>
-    <span>Problema de transportacion Esquina noroeste</span>
+<div class="d-flex justify-content-center align-items-center w-100  fondo">
+  <div *ngIf="started === true" class="navBar">
+    <div>
+      <span class="mNavBar"> <strong>Problema de transportacion Esquina noroeste</strong> </span>
+    </div>
+    <div>
+      <button (click)="iniciarPrograma()" class="btn btn-volver mr-5">Volver a pantalla inicio</button>
+    </div>
+  </div>
+
+  <div *ngIf="started === false" class="card cardInicial text-center d-flex justify-content-center align-items-center ">
+    <span class="tituloInicial ">Programacion lineal</span>
+    <span style="font-size:2.5rem;">Problema de transportacion Esquina noroeste</span>
+    <button class="btn btnIncial" (click)="iniciarPrograma()">INICIAR</button>
+  </div>
+  <div>
+    <h5 class="tituloCaptura" *ngIf="started === true">Captura de datos</h5>
+    <div *ngIf="started === true" class="card cardRecogerDatos ">
+      <img [src]="imagenCapturaDatos" style="height: inherit" />
+
+      <div class=" boton btn-1" [ngClass]="{ active: btnSelected === 'uno' }" (click)="buscarSRC('uno')"></div>
+      <div class=" boton btn-2" [ngClass]="{ active: btnSelected === 'dos' }" (click)="buscarSRC('dos')"></div>
+      <div class=" boton btn-3" [ngClass]="{ active: btnSelected === 'tres' }" (click)="buscarSRC('tres')"></div>
+      <div class=" boton btn-A" [ngClass]="{ active: btnSelected === 'A' }" (click)="buscarSRC('A')"></div>
+      <div class=" boton btn-B" [ngClass]="{ active: btnSelected === 'B' }" (click)="buscarSRC('B')"></div>
+      <div class=" boton btn-C" [ngClass]="{ active: btnSelected === 'C' }" (click)="buscarSRC('C')"></div>
+      <div class=" boton btn-D" [ngClass]="{ active: btnSelected === 'D' }" (click)="buscarSRC('D')"></div>
+
+      <input type="text" (blur)="desenfocar()" (focus)="buscarSRC('uno')" class="inputQustom input-oferta-1" id="input-oferta-1" />
+      <input type="text" (blur)="desenfocar()" (focus)="buscarSRC('dos')" class="inputQustom input-oferta-2" id="input-oferta-2" />
+      <input type="text" (blur)="desenfocar()" (focus)="buscarSRC('tres')" class="inputQustom input-oferta-3" id="input-oferta-3" />
+
+      <input type="text" (blur)="desenfocar()" (focus)="buscarSRC('A')" class="inputQustom input-demanda-A" id="input-demanda-A" />
+      <input type="text" (blur)="desenfocar()" (focus)="buscarSRC('B')" class="inputQustom input-demanda-B" id="input-demanda-B" />
+      <input type="text" (blur)="desenfocar()" (focus)="buscarSRC('C')" class="inputQustom input-demanda-C" id="input-demanda-C" />
+      <input type="text" (blur)="desenfocar()" (focus)="buscarSRC('D')" class="inputQustom input-demanda-D" id="input-demanda-D" />
+    </div>
   </div>
 </div>

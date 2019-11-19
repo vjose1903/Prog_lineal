@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+.fondo {
+  height: 100vh !important;
+  background-color: cadetblue;
+}
+.cardInicial {
+  height: 31rem;
+  width: 41rem;
+  box-shadow: -1px 7px 26px -6px rgb(0, 0, 0);
+}
+
+.cardRecogerDatos {
+  height: 41rem;
+  width: 47rem;
+  box-shadow: -1px 7px 26px -6px rgb(0, 0, 0);
+}
+
+.tituloInicial {
+  font-family: 'Righteous', cursive;
+  font-size: 3.5rem;
+  text-shadow: 1px 1px 4px #3f403dd6;
+}
+
+.btn-volver {
+  background-color: #c8ebec;
+  &:hover {
+    background-color: #a2cbcc;
+  }
+  &:active {
+    background-color: #79a2a3;
+  }
+}
+.btnIncial {
+  background-color: #3b6a6b;
+  height: 4rem;
+  width: 11rem;
+  color: white;
+  &:hover {
+    background-color: #2a5152;
+  }
+  &:active {
+    background-color: #193031;
+  }
+}
+
+.navBar {
+  width: 100%;
+  height: 2.5rem;
+  background-color: #f0fff8;
+  top: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: -1px 7px 26px -10px #00000087;
+}
+
+.mNavBar {
+  margin: 0rem 0rem 0rem 1rem;
+}
+
+.tituloCaptura {
+  font-family: 'Righteous', cursive;
+  font-size: 3.5rem;
+  color: white;
+  text-shadow: 1px 1px 4px #2a2b2ad6;
+}
+// ===================================================
+// botones
+// ===================================================
+.boton {
+  height: 6.4rem;
+  width: 7.5rem;
+  position: absolute;
+  background-color: transparent;
+  border-radius: 50%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.active {
+  background-color: #1c9680 !important;
+  filter: opacity(30%);
+}
+
+.btn-1 {
+  transform: translate(6.3rem, 3.7rem);
+}
+.btn-2 {
+  transform: translate(6.3rem, 17.3rem);
+}
+.btn-3 {
+  transform: translate(6.3rem, 30.9rem);
+}
+
+.btn-A {
+  transform: translate(33.1rem, 2.2rem);
+}
+.btn-B {
+  transform: translate(33.1rem, 12.3rem);
+}
+.btn-C {
+  transform: translate(33.1rem, 22.4rem);
+}
+.btn-D {
+  transform: translate(33.1rem, 32.6rem);
+}
+// ===================================================
+// campos texto
+// ===================================================
+
+input.inputQustom {
+  outline: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: none;
+  transition: all 0.5s;
+  padding-left: 0.5rem;
+  font-size: 1.3rem;
+  border-bottom: 2px solid #e7e7e7b2 !important;
+  &:focus {
+    border-bottom: 2px solid #1ea088 !important;
+  }
+}
+
+.input-oferta-1 {
+  transform: translate(0px, -31rem) !important;
+  width: 9rem;
+}
+.input-oferta-2 {
+  transform: translate(0px, -19.5rem) !important;
+  width: 9rem;
+}
+.input-oferta-3 {
+  transform: translate(0px, -8.2rem) !important;
+  width: 9rem;
+}
+
+.input-demanda-A {
+  transform: translate(38rem, -39.2rem) !important;
+  width: 9rem;
+}
+.input-demanda-B {
+  transform: translate(38rem, -31.2rem) !important;
+  width: 9rem;
+}
+.input-demanda-C {
+  transform: translate(38rem, -23.2rem) !important;
+  width: 9rem;
+}
+.input-demanda-D {
+  transform: translate(38rem, -15.6rem) !important;
+  width: 9rem;
+}
