@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Proyecto_programacion_lineal": {
+    "proyect": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -16,7 +16,13 @@
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
-            "assets": ["src/assets", "src/favicon.ico", "src/favicon.icns", "src/favicon.256x256.png", "src/favicon.512x512.png"],
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              "src/favicon.icns",
+              "src/favicon.256x256.png",
+              "src/favicon.512x512.png"
+            ],
             "styles": [
               "node_modules/primeng/resources/themes/nova-light/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
@@ -36,7 +42,10 @@
               "node_modules/animate.css/animate.css",
               "src/styles.scss"
             ],
-            "scripts": ["node_modules/chart.js/dist/Chart.js", "node_modules/hammerjs/hammer.min.js"]
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.js",
+              "node_modules/hammerjs/hammer.min.js"
+            ]
           },
           "configurations": {
             "dev": {
@@ -78,21 +87,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Proyecto-Prog_lineal:build"
+            "browserTarget": "proyect:build"
           },
           "configurations": {
             "dev": {
-              "browserTarget": "Proyecto-Prog_lineal:build:dev"
+              "browserTarget": "proyect:build:dev"
             },
             "production": {
-              "browserTarget": "Proyecto-Prog_lineal:build:production"
+              "browserTarget": "proyect:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Proyecto-Prog_lineal:build"
+            "browserTarget": "proyect:build"
           }
         },
         "test": {
@@ -103,8 +112,19 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "scripts": [],
-            "styles": ["./node_modules/bootstrap/dist/css/bootstrap.min.css", "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css", "src/styles.scss"],
-            "assets": ["src/assets", "src/favicon.ico", "src/favicon.png", "src/favicon.icns", "src/favicon.256x256.png", "src/favicon.512x512.png"]
+            "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "src/styles.scss"
+            ],
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              "src/favicon.png",
+              "src/favicon.icns",
+              "src/favicon.256x256.png",
+              "src/favicon.512x512.png"
+            ]
           }
         },
         "lint": {
@@ -116,7 +136,7 @@
         }
       }
     },
-    "Proyecto-Prog_lineal-e2e": {
+    "proyect-e2e": {
       "root": "e2e",
       "projectType": "application",
       "architect": {
@@ -130,7 +150,7 @@
       }
     }
   },
-  "defaultProject": "Proyecto-Prog_lineal",
+  "defaultProject": "proyect",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
