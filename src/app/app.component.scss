@@ -10,9 +10,11 @@
 }
 
 .cardRecogerDatos {
-  height: 41rem;
-  width: 47rem;
-  box-shadow: -1px 7px 26px -6px rgb(0, 0, 0);
+  height: 47rem;
+  width: 61rem;
+  box-shadow: -1px 7px 26px -6px black;
+  display: flex;
+  align-items: center;
 }
 
 .tituloInicial {
@@ -43,6 +45,15 @@
   }
 }
 
+div.divBalance {
+  position: absolute;
+  transform: translate(0rem, 57rem);
+}
+
+.bal {
+  font-size: 1.5rem;
+}
+
 .navBar {
   width: 100%;
   height: 2.5rem;
@@ -70,7 +81,7 @@
 // ===================================================
 .boton {
   height: 6.4rem;
-  width: 7.5rem;
+  width: 6.5rem;
   position: absolute;
   background-color: transparent;
   border-radius: 50%;
@@ -84,26 +95,33 @@
 }
 
 .btn-1 {
-  transform: translate(6.3rem, 3.7rem);
+  // background-color: blue;
+  transform: translate(-11.7rem, 3.7rem);
 }
 .btn-2 {
-  transform: translate(6.3rem, 17.3rem);
+  // background-color: blue;
+  transform: translate(-11.7rem, 17.3rem);
 }
 .btn-3 {
-  transform: translate(6.3rem, 30.9rem);
+  // background-color: blue;
+  transform: translate(-11.7rem, 30.9rem);
 }
 
 .btn-A {
-  transform: translate(33.1rem, 2.2rem);
+  // background-color: blue;
+  transform: translate(11.8rem, 2.2rem);
 }
 .btn-B {
-  transform: translate(33.1rem, 12.3rem);
+  // background-color: blue;
+  transform: translate(11.8rem, 12.3rem);
 }
 .btn-C {
-  transform: translate(33.1rem, 22.4rem);
+  // background-color: blue;
+  transform: translate(11.8rem, 22.4rem);
 }
 .btn-D {
-  transform: translate(33.1rem, 32.6rem);
+  // background-color: blue;
+  transform: translate(11.8rem, 32.6rem);
 }
 // ===================================================
 // campos texto
@@ -122,33 +140,150 @@ input.inputQustom {
     border-bottom: 2px solid #1ea088 !important;
   }
 }
+input.inputQustomCosto {
+  outline: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: none;
+  transition: all 0.5s;
+  padding-left: 0.5rem;
+  font-size: 1.3rem;
+  border-bottom: 2px solid #1ea088 !important;
+  &:focus {
+    border-bottom: 2px solid #0a5a4b !important;
+  }
+}
+input.inputSuma {
+  outline: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: none;
+  transition: all 0.5s;
+  padding-left: 0.5rem;
+  font-size: 1.3rem;
+  border-bottom: 2px solid #0a5a4b !important;
+  padding: 0rem 0rem 0rem 1.9rem;
+}
+// ---------------------------------------
+// OFERTA
+// ---------------------------------------
 
 .input-oferta-1 {
-  transform: translate(0px, -31rem) !important;
+  transform: translate(-20.5rem, -34.5rem) !important;
   width: 9rem;
 }
 .input-oferta-2 {
-  transform: translate(0px, -19.5rem) !important;
+  transform: translate(-20.5rem, -23.5rem) !important;
   width: 9rem;
 }
 .input-oferta-3 {
-  transform: translate(0px, -8.2rem) !important;
+  transform: translate(-20.5rem, -12.2rem) !important;
   width: 9rem;
 }
+// ---------------------------------------
+// SUMATORIAS
+// ---------------------------------------
+.rayaOferta {
+  border: 1px solid black;
+  transform: translate(-20.3rem, -18rem);
+  width: 12.5rem;
+}
+.sumaOferta {
+  transform: translate(-20.2rem, -18rem) !important;
+  width: 12rem;
+}
+
+.ofer {
+  transform: translate(-20rem, -20.5rem);
+  position: absolute;
+  font-size: 2rem;
+}
+.dema {
+  transform: translate(21.3rem, -25rem);
+  position: absolute;
+  font-size: 2rem;
+}
+
+.rayaDemanda {
+  border: 1px solid black;
+  transform: translate(20.7rem, -22.5rem) !important;
+  width: 12.5rem;
+}
+.sumaDemanda {
+  transform: translate(21rem, -22.2rem) !important;
+  width: 12rem;
+}
+// ---------------------------------------
+// DEMANDA
+// ---------------------------------------
 
 .input-demanda-A {
-  transform: translate(38rem, -39.2rem) !important;
+  transform: translate(21rem, -43.2rem) !important;
   width: 9rem;
 }
 .input-demanda-B {
-  transform: translate(38rem, -31.2rem) !important;
+  transform: translate(21rem, -34.5rem) !important;
   width: 9rem;
 }
 .input-demanda-C {
-  transform: translate(38rem, -23.2rem) !important;
+  transform: translate(21rem, -26.5rem) !important;
   width: 9rem;
 }
 .input-demanda-D {
-  transform: translate(38rem, -15.6rem) !important;
+  transform: translate(21rem, -19rem) !important;
   width: 9rem;
+}
+
+// ---------------------------------------
+// COSTOS DE TRANSPORTACION
+// ---------------------------------------
+.input-1A {
+  transform: translate(4rem, -53.1rem) !important;
+  width: 3rem;
+}
+.input-1B {
+  transform: translate(4rem, -48.5rem) !important;
+  width: 3rem;
+}
+.input-1C {
+  transform: translate(4rem, -43.1rem) !important;
+  width: 3rem;
+}
+.input-1D {
+  transform: translate(4rem, -38.1rem) !important;
+  width: 3rem;
+}
+// ------------------------------
+.input-2A {
+  transform: translate(4rem, -51.5rem) !important;
+  width: 3rem;
+}
+.input-2B {
+  transform: translate(4rem, -45.5rem) !important;
+  width: 3rem;
+}
+.input-2C {
+  transform: translate(4rem, -39.1rem) !important;
+  width: 3rem;
+}
+.input-2D {
+  transform: translate(4rem, -33.9rem) !important;
+  width: 3rem;
+}
+// ------------------------------
+.input-3A {
+  transform: translate(4rem, -50.1rem) !important;
+  width: 3rem;
+}
+.input-3B {
+  transform: translate(4rem, -43.9rem) !important;
+  width: 3rem;
+}
+.input-3C {
+  transform: translate(4rem, -36.8rem) !important;
+  width: 3rem;
+}
+.input-3D {
+  transform: translate(4rem, -30.4rem) !important;
+  width: 3rem;
 }

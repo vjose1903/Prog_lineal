@@ -8,16 +8,22 @@
     </div>
   </div>
 
-  <div *ngIf="started === false" class="card cardInicial text-center d-flex justify-content-center align-items-center ">
+  <!-- <div *ngIf="started === false" class="card cardInicial text-center d-flex justify-content-center align-items-center "> -->
+  <div *ngIf="started === true" class="card cardInicial text-center d-flex justify-content-center align-items-center ">
     <span class="tituloInicial ">Programacion lineal</span>
     <span style="font-size:2.5rem;">Problema de transportacion Esquina noroeste</span>
     <button class="btn btnIncial" (click)="iniciarPrograma()">INICIAR</button>
   </div>
   <div>
-    <h5 class="tituloCaptura" *ngIf="started === true">Captura de datos</h5>
-    <div *ngIf="started === true" class="card cardRecogerDatos ">
-      <img [src]="imagenCapturaDatos" style="height: inherit" />
+    <!-- <h5 class="tituloCaptura" *ngIf="started === true">Captura de datos</h5> -->
+    <h5 class="tituloCaptura" *ngIf="started === false">Captura de datos</h5>
+    <!-- <div *ngIf="started === true" class="card cardRecogerDatos "> -->
+    <div *ngIf="started === false" class="card cardRecogerDatos ">
+      <img [src]="imagenCapturaDatos" style="height: 41rem;" />
 
+      <!-- =========================================================================================================================================================== -->
+      <!-- BOTONES -->
+      <!-- =========================================================================================================================================================== -->
       <div class=" boton btn-1" [ngClass]="{ active: btnSelected === 'uno' }" (click)="buscarSRC('uno')"></div>
       <div class=" boton btn-2" [ngClass]="{ active: btnSelected === 'dos' }" (click)="buscarSRC('dos')"></div>
       <div class=" boton btn-3" [ngClass]="{ active: btnSelected === 'tres' }" (click)="buscarSRC('tres')"></div>
@@ -25,15 +31,77 @@
       <div class=" boton btn-B" [ngClass]="{ active: btnSelected === 'B' }" (click)="buscarSRC('B')"></div>
       <div class=" boton btn-C" [ngClass]="{ active: btnSelected === 'C' }" (click)="buscarSRC('C')"></div>
       <div class=" boton btn-D" [ngClass]="{ active: btnSelected === 'D' }" (click)="buscarSRC('D')"></div>
+      <!-- =========================================================================================================================================================== -->
+      <!-- OFERTAS -->
+      <!-- =========================================================================================================================================================== -->
+      <input type="number" [(ngModel)]="oferta_1" (focus)="enfocarOferta('uno')" class="inputQustom input-oferta-1" id="input-oferta-1" />
+      <input type="number" [(ngModel)]="oferta_2" (focus)="enfocarOferta('dos')" class="inputQustom input-oferta-2" id="input-oferta-2" />
+      <input type="number" [(ngModel)]="oferta_3" (focus)="enfocarOferta('tres')" class="inputQustom input-oferta-3" id="input-oferta-3" />
 
-      <input type="text" (blur)="desenfocar()" (focus)="buscarSRC('uno')" class="inputQustom input-oferta-1" id="input-oferta-1" />
-      <input type="text" (blur)="desenfocar()" (focus)="buscarSRC('dos')" class="inputQustom input-oferta-2" id="input-oferta-2" />
-      <input type="text" (blur)="desenfocar()" (focus)="buscarSRC('tres')" class="inputQustom input-oferta-3" id="input-oferta-3" />
+      <!-- =========================================================================================================================================================== -->
+      <!-- DEMANDAS -->
+      <!-- =========================================================================================================================================================== -->
 
-      <input type="text" (blur)="desenfocar()" (focus)="buscarSRC('A')" class="inputQustom input-demanda-A" id="input-demanda-A" />
-      <input type="text" (blur)="desenfocar()" (focus)="buscarSRC('B')" class="inputQustom input-demanda-B" id="input-demanda-B" />
-      <input type="text" (blur)="desenfocar()" (focus)="buscarSRC('C')" class="inputQustom input-demanda-C" id="input-demanda-C" />
-      <input type="text" (blur)="desenfocar()" (focus)="buscarSRC('D')" class="inputQustom input-demanda-D" id="input-demanda-D" />
+      <input type="number" (blur)="desenfocar()" [(ngModel)]="demanda_A" (focus)="buscarSRC('A')" class="inputQustom input-demanda-A" id="input-demanda-A" />
+      <input type="number" (blur)="desenfocar()" [(ngModel)]="demanda_B" (focus)="buscarSRC('B')" class="inputQustom input-demanda-B" id="input-demanda-B" />
+      <input type="number" (blur)="desenfocar()" [(ngModel)]="demanda_C" (focus)="buscarSRC('C')" class="inputQustom input-demanda-C" id="input-demanda-C" />
+      <input type="number" (blur)="desenfocar()" [(ngModel)]="demanda_D" (focus)="buscarSRC('D')" class="inputQustom input-demanda-D" id="input-demanda-D" />
+      <!-- =========================================================================================================================================================== -->
+      <!-- COSTOS DE TRANSPORTACION -->
+      <!-- =========================================================================================================================================================== -->
+      <!-- ------------------------------------------- -->
+      <!-- _COSTOS_1 -->
+      <!-- ------------------------------------------- -->
+      <input *ngIf="btnSelected === 'uno'" type="number" (focus)="enfocarOferta('uno')" [(ngModel)]="_1A" class="inputQustomCosto input-1A" id="_1A" />
+      <input *ngIf="btnSelected === 'uno'" type="number" (focus)="enfocarOferta('uno')" [(ngModel)]="_1B" class="inputQustomCosto input-1B" id="_1B" />
+      <input *ngIf="btnSelected === 'uno'" type="number" (focus)="enfocarOferta('uno')" [(ngModel)]="_1C" class="inputQustomCosto input-1C" id="_1C" />
+      <input *ngIf="btnSelected === 'uno'" type="number" (focus)="enfocarOferta('uno')" [(ngModel)]="_1D" class="inputQustomCosto input-1D" id="_1D" />
+
+      <!-- ------------------------------------------- -->
+      <!-- _COSTOS_2 -->
+      <!-- ------------------------------------------- -->
+      <input *ngIf="btnSelected === 'dos'" type="number" [(ngModel)]="_2A" class="inputQustomCosto input-2A" id="_2A" />
+      <input *ngIf="btnSelected === 'dos'" type="number" [(ngModel)]="_2B" class="inputQustomCosto input-2B" id="_2B" />
+      <input *ngIf="btnSelected === 'dos'" type="number" [(ngModel)]="_2C" class="inputQustomCosto input-2C" id="_2C" />
+      <input *ngIf="btnSelected === 'dos'" type="number" [(ngModel)]="_2D" class="inputQustomCosto input-2D" id="_2D" />
+
+      <!-- ------------------------------------------- -->
+      <!-- _COSTOS_3 -->
+      <!-- ------------------------------------------- -->
+      <input *ngIf="btnSelected === 'tres'" type="text" [(ngModel)]="_3A" class="inputQustomCosto input-3A" id="_3A" />
+      <input *ngIf="btnSelected === 'tres'" type="text" [(ngModel)]="_3B" class="inputQustomCosto input-3B" id="_3B" />
+      <input *ngIf="btnSelected === 'tres'" type="text" [(ngModel)]="_3C" class="inputQustomCosto input-3C" id="_3C" />
+      <input *ngIf="btnSelected === 'tres'" type="text" [(ngModel)]="_3D" class="inputQustomCosto input-3D" id="_3D" />
+
+      <!-- =========================================================================================================================================================== -->
+      <!-- SUMATORIAS -->
+      <!-- =========================================================================================================================================================== -->
+      <div *ngIf="balanceado" class="divBalance">
+        <div>
+          <span class="ofer">
+            + {{ ' ' }}
+            <span class="bal" *ngIf="balanceOferta > 0">
+              {{ balanceOferta }}
+            </span>
+          </span>
+
+          <hr class="rayaOferta" />
+          <input type="number" [(ngModel)]="sumaOferta" disabled="true" class="inputSuma sumaOferta" />
+        </div>
+        <div>
+          <span class="dema">
+            + {{ ' ' }}
+            <span class="bal " *ngIf="balanceDemanda > 0">
+              {{ balanceDemanda }}
+            </span>
+          </span>
+          <hr class="rayaDemanda" />
+          <input type="number" [(ngModel)]="sumaDemanda" disabled="true" class="inputSuma sumaDemanda" />
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+      <button [disabled]="habilitarBtnBanlancear()" class="btn btnIncial" (click)="balancear()">BALANCEAR</button>
     </div>
   </div>
 </div>
