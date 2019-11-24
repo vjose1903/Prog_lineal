@@ -127,6 +127,8 @@ export class AppComponent implements OnInit {
     }
     this.balanceado = true;
   }
+
+  Resolver() {}
   habilitarBtnBanlancear() {
     let res = true;
     if (

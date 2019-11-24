@@ -44,6 +44,19 @@
     background-color: #193031;
   }
 }
+.btnResolver {
+  margin: 0rem 0rem 0rem 1rem;
+  color: #193031;
+  background-color: #d8eeee;
+  height: 4rem;
+  width: 11rem;
+  &:hover {
+    background-color: #8dcfd1;
+  }
+  &:active {
+    background-color: #446b6d;
+  }
+}
 
 div.divBalance {
   position: absolute;
