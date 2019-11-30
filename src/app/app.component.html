@@ -8,17 +8,15 @@
     </div>
   </div>
 
-  <!-- <div *ngIf="started === false" class="card cardInicial text-center d-flex justify-content-center align-items-center "> -->
-  <div *ngIf="started === true" class="card cardInicial text-center d-flex justify-content-center align-items-center ">
+  <div *ngIf="started === false" class="card cardInicial text-center d-flex justify-content-center align-items-center ">
     <span class="tituloInicial ">Programacion lineal</span>
     <span style="font-size:2.5rem;">Problema de transportacion Esquina noroeste</span>
     <button class="btn btnIncial" (click)="iniciarPrograma()">INICIAR</button>
   </div>
   <div>
-    <!-- <h5 class="tituloCaptura" *ngIf="started === true">Captura de datos</h5> -->
-    <h5 class="tituloCaptura" *ngIf="started === false">Captura de datos</h5>
-    <!-- <div *ngIf="started === true" class="card cardRecogerDatos "> -->
-    <div *ngIf="started === false" class="card cardRecogerDatos ">
+    <h5 class="tituloCaptura" *ngIf="started === true">Captura de datos</h5>
+
+    <div *ngIf="started === true" class="card cardRecogerDatos ">
       <img [src]="imagenCapturaDatos" style="height: 41rem;" />
 
       <!-- =========================================================================================================================================================== -->
@@ -100,9 +98,103 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-center mt-4">
+    <div class="d-flex justify-content-center mt-4" *ngIf="started === true">
       <button [disabled]="habilitarBtnBanlancear()" class="btn btnIncial" (click)="balancear()">BALANCEAR</button>
       <button *ngIf="balanceado" class="btn btnResolver" (click)="Resolver()">RESOLVER</button>
+    </div>
+  </div>
+  <!-- =========================================================================================================================================================== -->
+  <!-- MOSTRAR RESULTADOS -->
+  <!-- =========================================================================================================================================================== -->
+  <div *ngIf="solucionado === true" class="card cardResolver">
+    <div style="width: 100%; height: 100%;">
+      <!--  -->
+      <div class="row" style="padding: 0rem 1rem;">
+        <div class="{{ balanceDemanda > 0 ? 'col-1' : 'col-2' }} p-0 column">
+          <div class="contenido "></div>
+          <div class="contenido "><span class="titulos">1</span></div>
+          <div class="contenido "><span class="titulos">2</span></div>
+          <div class="contenido "><span class="titulos">3</span></div>
+          <div *ngIf="balanceOferta > 0" class="contenido "><span class="titulos">4</span></div>
+          <div class="contenido "><span class="titulos">Demandas</span></div>
+        </div>
+        <!--  -->
+        <div class="col-2 p-0 column">
+          <div class="contenido "><span class="titulos">A</span></div>
+          <div class="contenido "></div>
+          <div class="contenido "></div>
+          <div class="contenido "></div>
+          <div *ngIf="balanceOferta > 0" class="contenido "></div>
+          <div class="contenido ">
+            <span class="titulos tachado">{{ demanda_A }}</span>
+          </div>
+        </div>
+        <!--  -->
+        <div class="col-2 p-0 column">
+          <div class="contenido "><span class="titulos">B</span></div>
+          <div class="contenido "></div>
+          <div class="contenido "></div>
+          <div class="contenido "></div>
+          <div *ngIf="balanceOferta > 0" class="contenido "></div>
+          <div class="contenido ">
+            <span class="titulos tachado">{{ demanda_B }}</span>
+          </div>
+        </div>
+        <!--  -->
+        <div class="col-2 p-0 column">
+          <div class="contenido "><span class="titulos">C</span></div>
+          <div class="contenido "></div>
+          <div class="contenido "></div>
+          <div class="contenido "></div>
+          <div *ngIf="balanceOferta > 0" class="contenido "></div>
+          <div class="contenido ">
+            <span class="titulos tachado">{{ demanda_C }}</span>
+          </div>
+        </div>
+        <!--  -->
+        <div class="col-2 p-0 column">
+          <div class="contenido "><span class="titulos">D</span></div>
+          <div class="contenido "></div>
+          <div class="contenido "></div>
+          <div class="contenido "></div>
+          <div *ngIf="balanceOferta > 0" class="contenido "></div>
+          <div class="contenido ">
+            <span class="titulos tachado">{{ demanda_D }}</span>
+          </div>
+        </div>
+        <!--  -->
+        <div *ngIf="balanceDemanda > 0" class="col-2 p-0 column">
+          <div *ngIf="balanceDemanda > 0" class="contenido "><span class="titulos">E</span></div>
+          <div *ngIf="balanceDemanda > 0" class="contenido "></div>
+          <div *ngIf="balanceDemanda > 0" class="contenido "></div>
+          <div *ngIf="balanceDemanda > 0" class="contenido "></div>
+          <div *ngIf="balanceDemanda > 0 && balanceOferta === 0 && balanceOferta > 0 && balanceDemanda === 0" class="contenido "></div>
+
+          <div *ngIf="balanceDemanda > 0" class="contenido ">
+            <span class="titulos tachado">{{ balanceDemanda }}</span>
+          </div>
+        </div>
+        <!--  -->
+        <div class="{{ balanceDemanda > 0 ? 'col-1' : 'col-2' }}  p-0 column">
+          <div class="contenido "><span class="titulos">Ofertas</span></div>
+          <div class="contenido ">
+            <span class="titulos tachado">{{ oferta_1 }}</span>
+          </div>
+          <div class="contenido ">
+            <span class="titulos tachado">{{ oferta_2 }}</span>
+          </div>
+          <div class="contenido ">
+            <span class="titulos tachado">{{ oferta_3 }}</span>
+          </div>
+          <div *ngIf="balanceOferta > 0" class="contenido ">
+            <span class="titulos tachado">{{ balanceOferta }}</span>
+          </div>
+          <div class="contenido ">
+            <span class="titulos">{{ sumaOferta }}</span>
+          </div>
+        </div>
+        <!--  -->
+      </div>
     </div>
   </div>
 </div>

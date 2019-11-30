@@ -10,6 +10,7 @@ import { AppConfig } from '../environments/environment';
 })
 export class AppComponent implements OnInit {
   started = false;
+  solucionado = false;
   balanceado = false;
 
   imagenCapturaDatos = '../assets/img/sin.png';
@@ -128,7 +129,11 @@ export class AppComponent implements OnInit {
     this.balanceado = true;
   }
 
-  Resolver() {}
+  Resolver() {
+    this.solucionado = true;
+    this.started = false;
+    // document.documentElement.style.setProperty('--widthResolver', '70rem');
+  }
   habilitarBtnBanlancear() {
     let res = true;
     if (

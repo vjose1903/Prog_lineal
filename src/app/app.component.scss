@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Righteous&display=swap");
 .fondo {
   height: 100vh !important;
   background-color: cadetblue;
@@ -18,7 +18,7 @@
 }
 
 .tituloInicial {
-  font-family: 'Righteous', cursive;
+  font-family: "Righteous", cursive;
   font-size: 3.5rem;
   text-shadow: 1px 1px 4px #3f403dd6;
 }
@@ -84,7 +84,7 @@ div.divBalance {
 }
 
 .tituloCaptura {
-  font-family: 'Righteous', cursive;
+  font-family: "Righteous", cursive;
   font-size: 3.5rem;
   color: white;
   text-shadow: 1px 1px 4px #2a2b2ad6;
@@ -299,4 +299,34 @@ input.inputSuma {
 .input-3D {
   transform: translate(4rem, -30.4rem) !important;
   width: 3rem;
+}
+// ================================================================================
+//  RESOLVER
+// ================================================================================
+
+.filas {
+  height: 7.8rem;
+  // border: 1px solid black;
+}
+
+.titulos {
+  margin: auto;
+}
+
+.contenido {
+  border: 1px solid black;
+  height: 7.8rem;
+  display: flex;
+}
+
+.cardResolver {
+  // height: 47rem;
+  width: 65rem;
+  box-shadow: -1px 7px 26px -6px black;
+  display: flex;
+  align-items: center;
+}
+
+.tachado {
+  text-decoration: line-through;
 }
