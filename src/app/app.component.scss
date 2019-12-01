@@ -44,6 +44,18 @@
     background-color: #193031;
   }
 }
+.btnsEnResultado {
+  background-color: #3b6a6b;
+  height: 4rem;
+  width: 18rem;
+  color: white;
+  &:hover {
+    background-color: #2a5152;
+  }
+  &:active {
+    background-color: #193031;
+  }
+}
 .btnResolver {
   margin: 0rem 0rem 0rem 1rem;
   color: #193031;
@@ -86,6 +98,18 @@ div.divBalance {
 .tituloCaptura {
   font-family: "Righteous", cursive;
   font-size: 3.5rem;
+  color: white;
+  text-shadow: 1px 1px 4px #2a2b2ad6;
+}
+.tituloResultado {
+  font-family: "Righteous", cursive;
+  font-size: 3.7rem;
+  color: white;
+  text-shadow: 1px 1px 4px #2a2b2ad6;
+}
+.Resultado {
+  font-family: "Righteous", cursive;
+  font-size: 3.2rem;
   color: white;
   text-shadow: 1px 1px 4px #2a2b2ad6;
 }
@@ -317,10 +341,13 @@ input.inputSuma {
   border: 1px solid black;
   height: 7.8rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cardResolver {
   // height: 47rem;
+  font-size: 1.5rem;
   width: 65rem;
   box-shadow: -1px 7px 26px -6px black;
   display: flex;
@@ -329,4 +356,40 @@ input.inputSuma {
 
 .tachado {
   text-decoration: line-through;
+}
+
+div.cuadroCosto {
+  border-bottom: 1px solid black;
+  height: 2.5rem;
+  width: 2.5rem;
+  margin: -5.2rem 0rem 0rem 8.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid black;
+}
+
+.asignacion {
+  margin: auto;
+  position: absolute;
+}
+.imaginario {
+  border-radius: 50%;
+  border: 1px solid black;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+}
+.peque {
+  font-size: 1rem !important;
+}
+.peque2 {
+  font-size: 1.2rem !important;
+}
+.divBonotesResultado {
+  width: 20rem;
+}
+
+.nuevo {
+  margin-top: 10rem;
 }
