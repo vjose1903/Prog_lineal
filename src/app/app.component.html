@@ -7,279 +7,280 @@
       <button (click)="pantallaInicio()" class="btn btn-volver mr-5">Volver a pantalla inicio</button>
     </div>
   </div>
+  <div class="contenedorTodo">
+    <div *ngIf="started === false && solucionado === false" class="card cardInicial text-center d-flex justify-content-center align-items-center ">
+      <span class="tituloInicial ">Programacion lineal</span>
+      <span style="font-size:2.5rem;">Problema de transportacion Esquina noroeste</span>
+      <button class="btn btnIncial" (click)="cambiarValores()">INICIAR</button>
+    </div>
+    <div *ngIf="started === true && solucionado === false">
+      <h5 class="tituloCaptura">Captura de datos</h5>
 
-  <div *ngIf="started === false && solucionado === false" class="card cardInicial text-center d-flex justify-content-center align-items-center ">
-    <span class="tituloInicial ">Programacion lineal</span>
-    <span style="font-size:2.5rem;">Problema de transportacion Esquina noroeste</span>
-    <button class="btn btnIncial" (click)="cambiarValores()">INICIAR</button>
-  </div>
-  <div *ngIf="started === true && solucionado === false">
-    <h5 class="tituloCaptura">Captura de datos</h5>
-
-    <div class="card cardRecogerDatos ">
-      <div>
-        <img [src]="imagenCapturaDatos" style="height: 41rem;" class="img-fluid" />
-      </div>
-
-      <!-- =========================================================================================================================================================== -->
-      <!-- BOTONES -->
-      <!-- =========================================================================================================================================================== -->
-      <div class=" boton btn-1" [ngClass]="{ active: btnSelected === 'uno' }" (click)="buscarSRC('uno')"></div>
-      <div class=" boton btn-2" [ngClass]="{ active: btnSelected === 'dos' }" (click)="buscarSRC('dos')"></div>
-      <div class=" boton btn-3" [ngClass]="{ active: btnSelected === 'tres' }" (click)="buscarSRC('tres')"></div>
-      <div class=" boton btn-A" [ngClass]="{ active: btnSelected === 'A' }" (click)="buscarSRC('A')"></div>
-      <div class=" boton btn-B" [ngClass]="{ active: btnSelected === 'B' }" (click)="buscarSRC('B')"></div>
-      <div class=" boton btn-C" [ngClass]="{ active: btnSelected === 'C' }" (click)="buscarSRC('C')"></div>
-      <div class=" boton btn-D" [ngClass]="{ active: btnSelected === 'D' }" (click)="buscarSRC('D')"></div>
-      <!-- =========================================================================================================================================================== -->
-      <!-- OFERTAS -->
-      <!-- =========================================================================================================================================================== -->
-      <input type="number" [(ngModel)]="oferta_1" (focus)="enfocarOferta('uno')" class="inputQustom input-oferta-1" id="input-oferta-1" />
-      <input type="number" [(ngModel)]="oferta_2" (focus)="enfocarOferta('dos')" class="inputQustom input-oferta-2" id="input-oferta-2" />
-      <input type="number" [(ngModel)]="oferta_3" (focus)="enfocarOferta('tres')" class="inputQustom input-oferta-3" id="input-oferta-3" />
-
-      <!-- =========================================================================================================================================================== -->
-      <!-- DEMANDAS -->
-      <!-- =========================================================================================================================================================== -->
-
-      <input type="number" (blur)="desenfocar()" [(ngModel)]="demanda_A" (focus)="buscarSRC('A')" class="inputQustom input-demanda-A" id="input-demanda-A" />
-      <input type="number" (blur)="desenfocar()" [(ngModel)]="demanda_B" (focus)="buscarSRC('B')" class="inputQustom input-demanda-B" id="input-demanda-B" />
-      <input type="number" (blur)="desenfocar()" [(ngModel)]="demanda_C" (focus)="buscarSRC('C')" class="inputQustom input-demanda-C" id="input-demanda-C" />
-      <input type="number" (blur)="desenfocar()" [(ngModel)]="demanda_D" (focus)="buscarSRC('D')" class="inputQustom input-demanda-D" id="input-demanda-D" />
-      <!-- =========================================================================================================================================================== -->
-      <!-- COSTOS DE TRANSPORTACION -->
-      <!-- =========================================================================================================================================================== -->
-      <!-- ------------------------------------------- -->
-      <!-- _COSTOS_1 -->
-      <!-- ------------------------------------------- -->
-      <input *ngIf="btnSelected === 'uno'" type="number" (focus)="enfocarOferta('uno')" [(ngModel)]="_1A" class="inputQustomCosto input-1A" id="_1A" />
-      <input *ngIf="btnSelected === 'uno'" type="number" (focus)="enfocarOferta('uno')" [(ngModel)]="_1B" class="inputQustomCosto input-1B" id="_1B" />
-      <input *ngIf="btnSelected === 'uno'" type="number" (focus)="enfocarOferta('uno')" [(ngModel)]="_1C" class="inputQustomCosto input-1C" id="_1C" />
-      <input *ngIf="btnSelected === 'uno'" type="number" (focus)="enfocarOferta('uno')" [(ngModel)]="_1D" class="inputQustomCosto input-1D" id="_1D" />
-
-      <!-- ------------------------------------------- -->
-      <!-- _COSTOS_2 -->
-      <!-- ------------------------------------------- -->
-      <input *ngIf="btnSelected === 'dos'" type="number" [(ngModel)]="_2A" class="inputQustomCosto input-2A" id="_2A" />
-      <input *ngIf="btnSelected === 'dos'" type="number" [(ngModel)]="_2B" class="inputQustomCosto input-2B" id="_2B" />
-      <input *ngIf="btnSelected === 'dos'" type="number" [(ngModel)]="_2C" class="inputQustomCosto input-2C" id="_2C" />
-      <input *ngIf="btnSelected === 'dos'" type="number" [(ngModel)]="_2D" class="inputQustomCosto input-2D" id="_2D" />
-
-      <!-- ------------------------------------------- -->
-      <!-- _COSTOS_3 -->
-      <!-- ------------------------------------------- -->
-      <input *ngIf="btnSelected === 'tres'" type="text" [(ngModel)]="_3A" class="inputQustomCosto input-3A" id="_3A" />
-      <input *ngIf="btnSelected === 'tres'" type="text" [(ngModel)]="_3B" class="inputQustomCosto input-3B" id="_3B" />
-      <input *ngIf="btnSelected === 'tres'" type="text" [(ngModel)]="_3C" class="inputQustomCosto input-3C" id="_3C" />
-      <input *ngIf="btnSelected === 'tres'" type="text" [(ngModel)]="_3D" class="inputQustomCosto input-3D" id="_3D" />
-
-      <!-- =========================================================================================================================================================== -->
-      <!-- SUMATORIAS -->
-      <!-- =========================================================================================================================================================== -->
-      <div *ngIf="balanceado" class="divBalance">
+      <div class="card cardRecogerDatos ">
         <div>
-          <span class="ofer">
-            + {{ ' ' }}
-            <span class="bal" *ngIf="balanceOferta > 0">
-              {{ balanceOferta }}
-            </span>
-          </span>
-
-          <hr class="rayaOferta" />
-          <input type="number" [(ngModel)]="sumaOferta" disabled="true" class="inputSuma sumaOferta" />
+          <img [src]="imagenCapturaDatos" style="height: 41rem;" class="img-fluid" />
         </div>
-        <div>
-          <span class="dema">
-            + {{ ' ' }}
-            <span class="bal " *ngIf="balanceDemanda > 0">
-              {{ balanceDemanda }}
+
+        <!-- =========================================================================================================================================================== -->
+        <!-- BOTONES -->
+        <!-- =========================================================================================================================================================== -->
+        <div class=" boton btn-1" [ngClass]="{ active: btnSelected === 'uno' }" (click)="buscarSRC('uno')"></div>
+        <div class=" boton btn-2" [ngClass]="{ active: btnSelected === 'dos' }" (click)="buscarSRC('dos')"></div>
+        <div class=" boton btn-3" [ngClass]="{ active: btnSelected === 'tres' }" (click)="buscarSRC('tres')"></div>
+        <div class=" boton btn-A" [ngClass]="{ active: btnSelected === 'A' }" (click)="buscarSRC('A')"></div>
+        <div class=" boton btn-B" [ngClass]="{ active: btnSelected === 'B' }" (click)="buscarSRC('B')"></div>
+        <div class=" boton btn-C" [ngClass]="{ active: btnSelected === 'C' }" (click)="buscarSRC('C')"></div>
+        <div class=" boton btn-D" [ngClass]="{ active: btnSelected === 'D' }" (click)="buscarSRC('D')"></div>
+        <!-- =========================================================================================================================================================== -->
+        <!-- OFERTAS -->
+        <!-- =========================================================================================================================================================== -->
+        <input type="number" [(ngModel)]="oferta_1" (focus)="enfocarOferta('uno')" class="inputQustom input-oferta-1" id="input-oferta-1" />
+        <input type="number" [(ngModel)]="oferta_2" (focus)="enfocarOferta('dos')" class="inputQustom input-oferta-2" id="input-oferta-2" />
+        <input type="number" [(ngModel)]="oferta_3" (focus)="enfocarOferta('tres')" class="inputQustom input-oferta-3" id="input-oferta-3" />
+
+        <!-- =========================================================================================================================================================== -->
+        <!-- DEMANDAS -->
+        <!-- =========================================================================================================================================================== -->
+
+        <input type="number" (blur)="desenfocar()" [(ngModel)]="demanda_A" (focus)="buscarSRC('A')" class="inputQustom input-demanda-A" id="input-demanda-A" />
+        <input type="number" (blur)="desenfocar()" [(ngModel)]="demanda_B" (focus)="buscarSRC('B')" class="inputQustom input-demanda-B" id="input-demanda-B" />
+        <input type="number" (blur)="desenfocar()" [(ngModel)]="demanda_C" (focus)="buscarSRC('C')" class="inputQustom input-demanda-C" id="input-demanda-C" />
+        <input type="number" (blur)="desenfocar()" [(ngModel)]="demanda_D" (focus)="buscarSRC('D')" class="inputQustom input-demanda-D" id="input-demanda-D" />
+        <!-- =========================================================================================================================================================== -->
+        <!-- COSTOS DE TRANSPORTACION -->
+        <!-- =========================================================================================================================================================== -->
+        <!-- ------------------------------------------- -->
+        <!-- _COSTOS_1 -->
+        <!-- ------------------------------------------- -->
+        <input *ngIf="btnSelected === 'uno'" type="number" (focus)="enfocarOferta('uno')" [(ngModel)]="_1A" class="inputQustomCosto input-1A" id="_1A" />
+        <input *ngIf="btnSelected === 'uno'" type="number" (focus)="enfocarOferta('uno')" [(ngModel)]="_1B" class="inputQustomCosto input-1B" id="_1B" />
+        <input *ngIf="btnSelected === 'uno'" type="number" (focus)="enfocarOferta('uno')" [(ngModel)]="_1C" class="inputQustomCosto input-1C" id="_1C" />
+        <input *ngIf="btnSelected === 'uno'" type="number" (focus)="enfocarOferta('uno')" [(ngModel)]="_1D" class="inputQustomCosto input-1D" id="_1D" />
+
+        <!-- ------------------------------------------- -->
+        <!-- _COSTOS_2 -->
+        <!-- ------------------------------------------- -->
+        <input *ngIf="btnSelected === 'dos'" type="number" [(ngModel)]="_2A" class="inputQustomCosto input-2A" id="_2A" />
+        <input *ngIf="btnSelected === 'dos'" type="number" [(ngModel)]="_2B" class="inputQustomCosto input-2B" id="_2B" />
+        <input *ngIf="btnSelected === 'dos'" type="number" [(ngModel)]="_2C" class="inputQustomCosto input-2C" id="_2C" />
+        <input *ngIf="btnSelected === 'dos'" type="number" [(ngModel)]="_2D" class="inputQustomCosto input-2D" id="_2D" />
+
+        <!-- ------------------------------------------- -->
+        <!-- _COSTOS_3 -->
+        <!-- ------------------------------------------- -->
+        <input *ngIf="btnSelected === 'tres'" type="text" [(ngModel)]="_3A" class="inputQustomCosto input-3A" id="_3A" />
+        <input *ngIf="btnSelected === 'tres'" type="text" [(ngModel)]="_3B" class="inputQustomCosto input-3B" id="_3B" />
+        <input *ngIf="btnSelected === 'tres'" type="text" [(ngModel)]="_3C" class="inputQustomCosto input-3C" id="_3C" />
+        <input *ngIf="btnSelected === 'tres'" type="text" [(ngModel)]="_3D" class="inputQustomCosto input-3D" id="_3D" />
+
+        <!-- =========================================================================================================================================================== -->
+        <!-- SUMATORIAS -->
+        <!-- =========================================================================================================================================================== -->
+        <div *ngIf="balanceado" class="divBalance">
+          <div>
+            <span class="ofer">
+              + {{ ' ' }}
+              <span class="bal" *ngIf="balanceOferta > 0">
+                {{ balanceOferta }}
+              </span>
             </span>
-          </span>
-          <hr class="rayaDemanda" />
-          <input type="number" [(ngModel)]="sumaDemanda" disabled="true" class="inputSuma sumaDemanda" />
-        </div>
-      </div>
-    </div>
-    <div class="d-flex justify-content-center mt-4" *ngIf="started === true">
-      <button [disabled]="habilitarBtnBanlancear()" class="btn btnIncial" (click)="balancear()">BALANCEAR</button>
-      <button *ngIf="balanceado" class="btn btnResolver" (click)="Resolver()">RESOLVER</button>
-    </div>
-  </div>
-  <!-- =========================================================================================================================================================== -->
-  <!-- MOSTRAR RESULTADOS -->
-  <!-- =========================================================================================================================================================== -->
-  <div *ngIf="solucionado === true" class=" d-flex justify-content-center align-content-center">
-    <div class="divBonotesResultado">
-      <div class="w-100">
-        <button class="btn btnsEnResultado nuevo" (click)="nuevoProblema()">INGRESAR NUEVO PROBLEMA</button>
-      </div>
 
-      <div class="w-100">
-        <button class="btn btnsEnResultado mt-3 " (click)="cambiarValores()">CAMBIAR VALORES ACTUALES</button>
-      </div>
-    </div>
-    <div>
-      <h3 class="tituloResultado" *ngIf="solucionado === true">Resultado</h3>
-      <div class="card cardResolver">
-        <div style="width: 100%; height: 100%;">
-          <!--  -->
-          <div class="row" style="padding: 0rem 1rem;">
-            <div class="{{ balanceDemanda > 0 ? 'col-1' : 'col-2' }} p-0 column">
-              <div class="contenido "></div>
-              <div class="contenido "><span class="titulos">1</span></div>
-              <div class="contenido "><span class="titulos">2</span></div>
-              <div class="contenido "><span class="titulos">3</span></div>
-              <div *ngIf="balanceOferta > 0" class="contenido ">
-                <div class="imaginario">
-                  <span class="titulos">4</span>
-                </div>
-              </div>
-              <div class="contenido "><span class="titulos" [ngClass]="{ peque: balanceDemanda > 0 }">Demandas</span></div>
-            </div>
-            <!--  -->
-            <div class="col-2 p-0 column">
-              <div class="contenido "><span class="titulos">A</span></div>
-              <div class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_1A) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_1A) }}</div>
-              </div>
-              <div class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_2A) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_2A) }}</div>
-              </div>
-              <div class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_3A) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_3A) }}</div>
-              </div>
-              <div *ngIf="balanceOferta > 0" class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_4A) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_4A) }}</div>
-              </div>
-              <div class="contenido ">
-                <span class="titulos tachado">{{ formatearNumero(demanda_A) }}</span>
-              </div>
-            </div>
-            <!--  -->
-            <div class="col-2 p-0 column">
-              <div class="contenido "><span class="titulos">B</span></div>
-              <div class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_1B) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_1B) }}</div>
-              </div>
-              <div class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_2B) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_2B) }}</div>
-              </div>
-              <div class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_3B) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_3B) }}</div>
-              </div>
-              <div *ngIf="balanceOferta > 0" class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_4B) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_4B) }}</div>
-              </div>
-              <div class="contenido ">
-                <span class="titulos tachado">{{ formatearNumero(demanda_B) }}</span>
-              </div>
-            </div>
-            <!--  -->
-            <div class="col-2 p-0 column">
-              <div class="contenido "><span class="titulos">C</span></div>
-              <div class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_1C) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_1C) }}</div>
-              </div>
-              <div class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_2C) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_2C) }}</div>
-              </div>
-              <div class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_3C) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_3C) }}</div>
-              </div>
-              <div *ngIf="balanceOferta > 0" class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_4C) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_4C) }}</div>
-              </div>
-              <div class="contenido ">
-                <span class="titulos tachado">{{ formatearNumero(demanda_C) }}</span>
-              </div>
-            </div>
-            <!--  -->
-            <div class="col-2 p-0 column">
-              <div class="contenido "><span class="titulos">D</span></div>
-              <div class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_1D) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_1D) }}</div>
-              </div>
-              <div class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_2D) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_2D) }}</div>
-              </div>
-              <div class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_3D) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_3D) }}</div>
-              </div>
-              <div *ngIf="balanceOferta > 0" class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_4D) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_4D) }}</div>
-              </div>
-              <div class="contenido ">
-                <span class="titulos tachado">{{ formatearNumero(demanda_D) }}</span>
-              </div>
-            </div>
-            <!--  -->
-            <div *ngIf="balanceDemanda > 0" class="col-2 p-0 column">
-              <div *ngIf="balanceDemanda > 0" class="contenido ">
-                <div class="imaginario">
-                  <span class="titulos">E</span>
-                </div>
-              </div>
-              <div *ngIf="balanceDemanda > 0" class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_1E) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_1E) }}</div>
-              </div>
-              <div *ngIf="balanceDemanda > 0" class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_2E) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_2E) }}</div>
-              </div>
-              <div *ngIf="balanceDemanda > 0" class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_3E) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_3E) }}</div>
-              </div>
-              <div *ngIf="balanceDemanda > 0 && balanceOferta === 0 && balanceOferta > 0 && balanceDemanda === 0" class="contenido ">
-                <div class="asignacion">{{ formatearNumero(asignacion_4E) }}</div>
-                <div class="cuadroCosto">{{ formatearNumero(_4E) }}</div>
-              </div>
-
-              <div *ngIf="balanceDemanda > 0" class="contenido ">
-                <span class="titulos tachado">{{ formatearNumero(balanceDemanda) }}</span>
-              </div>
-            </div>
-            <!--  -->
-            <div class="{{ balanceDemanda > 0 ? 'col-1' : 'col-2' }}  p-0 column">
-              <div class="contenido "><span class="titulos" [ngClass]="{ peque2: balanceDemanda > 0 }">Ofertas</span></div>
-              <div class="contenido ">
-                <span class="titulos tachado" [ngClass]="{ peque2: balanceDemanda > 0 }">{{ formatearNumero(oferta_1) }}</span>
-              </div>
-              <div class="contenido ">
-                <span class="titulos tachado" [ngClass]="{ peque2: balanceDemanda > 0 }">{{ formatearNumero(oferta_2) }}</span>
-              </div>
-              <div class="contenido ">
-                <span class="titulos tachado" [ngClass]="{ peque2: balanceDemanda > 0 }">{{ formatearNumero(oferta_3) }}</span>
-              </div>
-              <div *ngIf="balanceOferta > 0" class="contenido ">
-                <span class="titulos tachado" [ngClass]="{ peque2: balanceDemanda > 0 }">{{ formatearNumero(balanceOferta) }}</span>
-              </div>
-              <div class="contenido ">
-                <span class="titulos" [ngClass]="{ peque2: balanceDemanda > 0 }">{{ formatearNumero(sumaOferta) }}</span>
-              </div>
-            </div>
-            <!--  -->
+            <hr class="rayaOferta" />
+            <input type="number" [(ngModel)]="sumaOferta" disabled="true" class="inputSuma sumaOferta" />
+          </div>
+          <div>
+            <span class="dema">
+              + {{ ' ' }}
+              <span class="bal " *ngIf="balanceDemanda > 0">
+                {{ balanceDemanda }}
+              </span>
+            </span>
+            <hr class="rayaDemanda" />
+            <input type="number" [(ngModel)]="sumaDemanda" disabled="true" class="inputSuma sumaDemanda" />
           </div>
         </div>
       </div>
-      <h5 class="Resultado mt-3" *ngIf="solucionado === true">Costo total = RD$ {{ ' ' }}{{ formatearNumero(resultado) }}</h5>
+      <div class="d-flex justify-content-center mt-4" *ngIf="started === true">
+        <button [disabled]="habilitarBtnBanlancear()" class="btn btnIncial" (click)="balancear()">BALANCEAR</button>
+        <button *ngIf="balanceado" class="btn btnResolver" (click)="Resolver()">RESOLVER</button>
+      </div>
+    </div>
+    <!-- =========================================================================================================================================================== -->
+    <!-- MOSTRAR RESULTADOS -->
+    <!-- =========================================================================================================================================================== -->
+    <div *ngIf="solucionado === true" class=" d-flex justify-content-center align-content-center">
+      <div class="divBonotesResultado">
+        <div class="w-100">
+          <button class="btn btnsEnResultado nuevo" (click)="nuevoProblema()">INGRESAR NUEVO PROBLEMA</button>
+        </div>
+
+        <div class="w-100">
+          <button class="btn btnsEnResultado mt-3 " (click)="cambiarValores()">CAMBIAR VALORES ACTUALES</button>
+        </div>
+      </div>
+      <div>
+        <h3 class="tituloResultado" *ngIf="solucionado === true">Resultado</h3>
+        <div class="card cardResolver">
+          <div style="width: 100%; height: 100%;">
+            <!--  -->
+            <div class="row" style="padding: 0rem 1rem;">
+              <div class="{{ balanceDemanda > 0 ? 'col-1' : 'col-2' }} p-0 column">
+                <div class="contenido "></div>
+                <div class="contenido "><span class="titulos">1</span></div>
+                <div class="contenido "><span class="titulos">2</span></div>
+                <div class="contenido "><span class="titulos">3</span></div>
+                <div *ngIf="balanceOferta > 0" class="contenido ">
+                  <div class="imaginario">
+                    <span class="titulos">4</span>
+                  </div>
+                </div>
+                <div class="contenido "><span class="titulos" [ngClass]="{ peque: balanceDemanda > 0 }">Demandas</span></div>
+              </div>
+              <!--  -->
+              <div class="col-2 p-0 column">
+                <div class="contenido "><span class="titulos">A</span></div>
+                <div class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_1A) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_1A) }}</div>
+                </div>
+                <div class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_2A) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_2A) }}</div>
+                </div>
+                <div class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_3A) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_3A) }}</div>
+                </div>
+                <div *ngIf="balanceOferta > 0" class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_4A) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_4A) }}</div>
+                </div>
+                <div class="contenido ">
+                  <span class="titulos tachado">{{ formatearNumero(demanda_A) }}</span>
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-2 p-0 column">
+                <div class="contenido "><span class="titulos">B</span></div>
+                <div class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_1B) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_1B) }}</div>
+                </div>
+                <div class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_2B) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_2B) }}</div>
+                </div>
+                <div class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_3B) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_3B) }}</div>
+                </div>
+                <div *ngIf="balanceOferta > 0" class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_4B) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_4B) }}</div>
+                </div>
+                <div class="contenido ">
+                  <span class="titulos tachado">{{ formatearNumero(demanda_B) }}</span>
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-2 p-0 column">
+                <div class="contenido "><span class="titulos">C</span></div>
+                <div class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_1C) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_1C) }}</div>
+                </div>
+                <div class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_2C) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_2C) }}</div>
+                </div>
+                <div class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_3C) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_3C) }}</div>
+                </div>
+                <div *ngIf="balanceOferta > 0" class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_4C) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_4C) }}</div>
+                </div>
+                <div class="contenido ">
+                  <span class="titulos tachado">{{ formatearNumero(demanda_C) }}</span>
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-2 p-0 column">
+                <div class="contenido "><span class="titulos">D</span></div>
+                <div class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_1D) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_1D) }}</div>
+                </div>
+                <div class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_2D) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_2D) }}</div>
+                </div>
+                <div class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_3D) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_3D) }}</div>
+                </div>
+                <div *ngIf="balanceOferta > 0" class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_4D) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_4D) }}</div>
+                </div>
+                <div class="contenido ">
+                  <span class="titulos tachado">{{ formatearNumero(demanda_D) }}</span>
+                </div>
+              </div>
+              <!--  -->
+              <div *ngIf="balanceDemanda > 0" class="col-2 p-0 column">
+                <div *ngIf="balanceDemanda > 0" class="contenido ">
+                  <div class="imaginario">
+                    <span class="titulos">E</span>
+                  </div>
+                </div>
+                <div *ngIf="balanceDemanda > 0" class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_1E) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_1E) }}</div>
+                </div>
+                <div *ngIf="balanceDemanda > 0" class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_2E) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_2E) }}</div>
+                </div>
+                <div *ngIf="balanceDemanda > 0" class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_3E) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_3E) }}</div>
+                </div>
+                <div *ngIf="balanceDemanda > 0 && balanceOferta === 0 && balanceOferta > 0 && balanceDemanda === 0" class="contenido ">
+                  <div class="asignacion">{{ formatearNumero(asignacion_4E) }}</div>
+                  <div class="cuadroCosto">{{ formatearNumero(_4E) }}</div>
+                </div>
+
+                <div *ngIf="balanceDemanda > 0" class="contenido ">
+                  <span class="titulos tachado">{{ formatearNumero(balanceDemanda) }}</span>
+                </div>
+              </div>
+              <!--  -->
+              <div class="{{ balanceDemanda > 0 ? 'col-1' : 'col-2' }}  p-0 column">
+                <div class="contenido "><span class="titulos" [ngClass]="{ peque2: balanceDemanda > 0 }">Ofertas</span></div>
+                <div class="contenido ">
+                  <span class="titulos tachado" [ngClass]="{ peque2: balanceDemanda > 0 }">{{ formatearNumero(oferta_1) }}</span>
+                </div>
+                <div class="contenido ">
+                  <span class="titulos tachado" [ngClass]="{ peque2: balanceDemanda > 0 }">{{ formatearNumero(oferta_2) }}</span>
+                </div>
+                <div class="contenido ">
+                  <span class="titulos tachado" [ngClass]="{ peque2: balanceDemanda > 0 }">{{ formatearNumero(oferta_3) }}</span>
+                </div>
+                <div *ngIf="balanceOferta > 0" class="contenido ">
+                  <span class="titulos tachado" [ngClass]="{ peque2: balanceDemanda > 0 }">{{ formatearNumero(balanceOferta) }}</span>
+                </div>
+                <div class="contenido ">
+                  <span class="titulos" [ngClass]="{ peque2: balanceDemanda > 0 }">{{ formatearNumero(sumaOferta) }}</span>
+                </div>
+              </div>
+              <!--  -->
+            </div>
+          </div>
+        </div>
+        <h5 class="Resultado mt-3" *ngIf="solucionado === true">Costo total = RD$ {{ ' ' }}{{ formatearNumero(resultado) }}</h5>
+      </div>
     </div>
   </div>
 </div>
