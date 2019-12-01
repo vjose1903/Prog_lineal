@@ -19,32 +19,32 @@ export class AppComponent implements OnInit {
 
   element: HTMLElement;
 
-  oferta_1 = 400;
-  oferta_2 = 7000;
-  oferta_3 = 1090;
+  oferta_1 = 0;
+  oferta_2 = 0;
+  oferta_3 = 0;
 
-  demanda_A = 590;
-  demanda_B = 1500;
-  demanda_C = 5500;
-  demanda_D = 900;
+  demanda_A = 0;
+  demanda_B = 0;
+  demanda_C = 0;
+  demanda_D = 0;
 
   // ------------------
-  _1A = 13;
-  _1B = 17;
-  _1C = 19;
-  _1D = 11;
+  _1A = 0;
+  _1B = 0;
+  _1C = 0;
+  _1D = 0;
   _1E = 0;
 
-  _2A = 21;
-  _2B = 29;
-  _2C = 27;
-  _2D = 20;
+  _2A = 0;
+  _2B = 0;
+  _2C = 0;
+  _2D = 0;
   _2E = 0;
 
-  _3A = 38;
-  _3B = 32;
-  _3C = 30;
-  _3D = 37;
+  _3A = 0;
+  _3B = 0;
+  _3C = 0;
+  _3D = 0;
   _3E = 0;
 
   _4A = 0;
@@ -274,7 +274,7 @@ export class AppComponent implements OnInit {
       console.log('=========================');
       for (let indexDemanda = 0; indexDemanda < demandas.length; indexDemanda++) {
         const demand = demandas[indexDemanda];
-        
+
         this.darAsignaciones(indexOferta + 1, indexDemanda, 0);
         if (demand > 0) {
           if (demand >= ofert) {
