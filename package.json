@@ -33,7 +33,7 @@
     "release": "npm run build:prod && rimraf dist/hue.0614c27197fc3ce572e1.png dist/color.c7a33805ffda0d32bd2a.png dist/line.567f57385ea3dde2c9ae.gif dist/loading.8732a6660b528fadfaeb.gif dist/password-meter.d59e6dc2616c53ce8e77.png && electron-builder build --windows"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "0.800.2",
+    "@angular-devkit/build-angular": "15.0.0",
     "@angular/cli": "8.0.2",
     "@angular/common": "8.0.0",
     "@angular/compiler": "8.0.0",
